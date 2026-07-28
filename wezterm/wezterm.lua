@@ -30,6 +30,15 @@ config.integrated_title_button_style = "MacOsNative"
 config.integrated_title_button_alignment = "Left"
 config.integrated_title_button_color = "Auto"
 
+-- Known upstream bug when maximized/fullscreen: window pixel height isn't an
+-- exact multiple of the cell grid, leaving a thin gap at the bottom (visible
+-- right under lualine). No clean fix on the stable release; the fix
+-- (`window_content_alignment`, to move the gap to the top instead) only
+-- exists on WezTerm nightly builds. See:
+-- https://github.com/wezterm/wezterm/issues/6256
+-- https://github.com/wezterm/wezterm/issues/7113
+-- Living with it for now rather than switching to nightly.
+
 config.default_cursor_style = "SteadyBlock"
 config.scrollback_lines = 10000
 
