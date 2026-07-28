@@ -96,6 +96,26 @@
 | `<leader>hp` | Preview hunk |
 | `<leader>hb` | Blame de la línea |
 
+## Cliente de git (neogit + diffview)
+
+| Atajo | Acción |
+|---|---|
+| `<leader>gg` | Abrir Neogit (staged/unstaged/untracked, commit, push/pull, branches) |
+| `<leader>gc` | Commit |
+| `<leader>gd` | Diff contra HEAD (diffview) |
+| `<leader>gh` | Historial del archivo (diffview) |
+
+## GitHub (octo.nvim)
+
+Requiere el CLI `gh`, ya instalado y logueado.
+
+| Atajo | Acción |
+|---|---|
+| `<leader>op` | Listar pull requests |
+| `<leader>oi` | Listar issues |
+| `<leader>on` | Listar notificaciones |
+| `<leader>os` | Buscar en GitHub |
+
 ## Claude Code (claudecode.nvim)
 
 | Atajo | Modo | Acción |

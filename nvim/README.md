@@ -96,6 +96,26 @@ New to Neovim? Start with [`TUTORIAL.md`](TUTORIAL.md).
 | `<leader>hp` | Preview hunk |
 | `<leader>hb` | Blame line |
 
+## Git client (neogit + diffview)
+
+| Key | Action |
+|---|---|
+| `<leader>gg` | Open Neogit (staged/unstaged/untracked, commit, push/pull, branches) |
+| `<leader>gc` | Commit |
+| `<leader>gd` | Diff against HEAD (diffview) |
+| `<leader>gh` | File history (diffview) |
+
+## GitHub (octo.nvim)
+
+Requires the `gh` CLI, already installed and authenticated.
+
+| Key | Action |
+|---|---|
+| `<leader>op` | List pull requests |
+| `<leader>oi` | List issues |
+| `<leader>on` | List notifications |
+| `<leader>os` | Search GitHub |
+
 ## Claude Code (claudecode.nvim)
 
 | Key | Mode | Action |

@@ -14,5 +14,7 @@ return {
     { "<leader>u", group = "UI" },
     { "<leader>t", group = "Terminal" },
     { "<leader>n", group = "npm" },
+    { "<leader>g", group = "Git" },
+    { "<leader>o", group = "GitHub" },
   },
 }
