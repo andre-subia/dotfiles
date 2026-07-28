@@ -7,8 +7,9 @@ module.exports = {
         // choose either `'stable'` for receiving highly polished,
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
-        // catppuccin theme, see plugins array below
-        theme: 'catppuccin-mocha',
+        // catppuccin mocha, set by hand below (not via the @catppuccin/hyper
+        // plugin: it overrides backgroundColor with an opaque hex, which
+        // kills the alpha transparency we want)
         // default font size in pixels for all tabs
         fontSize: 12,
         // font family with optional fallbacks
@@ -22,22 +23,23 @@ module.exports = {
         // letter spacing as a relative unit
         letterSpacing: 0,
         // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-        cursorColor: 'rgba(248,28,229,0.8)',
+        cursorColor: 'rgba(245, 224, 220, 0.8)', // rosewater
         // terminal text color under BLOCK cursor
-        cursorAccentColor: '#000',
+        cursorAccentColor: '#1e1e2e', // base
         // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
         cursorShape: 'BLOCK',
         // set to `true` (without backticks and without quotes) for blinking cursor
         cursorBlink: false,
         // color of the text
-        foregroundColor: '#fff',
+        foregroundColor: '#cdd6f4', // text
         // terminal background color
         // opacity is only supported on macOS
-        backgroundColor: '#000',
+        // catppuccin mocha "base" (#1e1e2e) with alpha for real desktop transparency
+        backgroundColor: 'rgba(30, 30, 46, 0.88)',
         // terminal selection color
-        selectionColor: 'rgba(248,28,229,0.3)',
+        selectionColor: 'rgba(49, 50, 68, 0.6)', // surface0
         // border color (window, tabs)
-        borderColor: '#333',
+        borderColor: '#181825', // mantle
         // custom CSS to embed in the main window
         css: '',
         // custom CSS to embed in the terminal window
@@ -56,25 +58,24 @@ module.exports = {
         // the full list. if you're going to provide the full color palette,
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
+        // catppuccin mocha ANSI palette
         colors: {
-            black: '#000000',
-            red: '#C51E14',
-            green: '#1DC121',
-            yellow: '#C7C329',
-            blue: '#0A2FC4',
-            magenta: '#C839C5',
-            cyan: '#20C5C6',
-            white: '#C7C7C7',
-            lightBlack: '#686868',
-            lightRed: '#FD6F6B',
-            lightGreen: '#67F86F',
-            lightYellow: '#FFFA72',
-            lightBlue: '#6A76FB',
-            lightMagenta: '#FD7CFC',
-            lightCyan: '#68FDFE',
-            lightWhite: '#FFFFFF',
-            limeGreen: '#32CD32',
-            lightCoral: '#F08080',
+            black: '#45475a',
+            red: '#f38ba8',
+            green: '#a6e3a1',
+            yellow: '#f9e2af',
+            blue: '#89b4fa',
+            magenta: '#f5c2e7',
+            cyan: '#94e2d5',
+            white: '#a6adc8',
+            lightBlack: '#585b70',
+            lightRed: '#f37799',
+            lightGreen: '#89d88b',
+            lightYellow: '#ebd391',
+            lightBlue: '#74a8fc',
+            lightMagenta: '#f2aede',
+            lightCyan: '#6bd7ca',
+            lightWhite: '#bac2de',
         },
         // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
         // if left empty, your system's login shell will be used by default
@@ -139,7 +140,7 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: ['@catppuccin/hyper#1.0.8'],
+    plugins: [],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
