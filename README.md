@@ -5,7 +5,8 @@ Configuración personal, pensada para levantar el mismo entorno en cualquier Mac
 ## Contenido
 
 - `nvim/` — Neovim configurado como IDE: LSP (TypeScript/JS, Python, Lua, JSON, HTML, CSS, Bash, Markdown), autocompletado, treesitter, explorador de archivos, fuzzy finder, git signs, formateo automático al guardar, y [claudecode.nvim](https://github.com/coder/claudecode.nvim) para usar Claude Code directamente dentro del editor.
-- `hyper/` — Configuración de [Hyper](https://hyper.is) con el tema [Catppuccin Mocha](https://github.com/catppuccin/hyper).
+- `wezterm/` — Terminal principal. GPU-accelerated, config en Lua, tema Catppuccin Mocha nativo y transparencia real con blur.
+- `hyper/` — Config de [Hyper](https://hyper.is) que se usó al principio. Queda de respaldo pero no es la terminal recomendada: al ser Electron, mete su propio menú contextual nativo que choca con el de Neovim (doble menú al hacer click derecho).
 
 Tema de color en todo el setup: [Catppuccin](https://github.com/catppuccin) (flavour `mocha`).
 
@@ -21,7 +22,7 @@ falta, y crea los symlinks. Se puede correr de nuevo sin problema — no reinsta
 lo que ya está, y si encuentra un `~/.config/nvim` o `~/.hyper.js` previo que no
 sea de este repo, lo mueve a un `.bak` en vez de pisarlo.
 
-Después, abrí `nvim` una vez (lazy.nvim instala los plugins solo) y reiniciá Hyper.
+Después, abrí WezTerm y corré `nvim` una vez (lazy.nvim instala los plugins solo).
 
 ## Neovim: atajos clave
 

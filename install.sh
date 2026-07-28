@@ -24,7 +24,7 @@ fi
 
 info "Instalando dependencias con Homebrew"
 brew install neovim git gh ripgrep fd tree-sitter-cli lazygit
-brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-jetbrains-mono-nerd-font wezterm
 
 if ! command -v claude >/dev/null 2>&1; then
   info "Instalando Claude Code CLI"
@@ -52,9 +52,11 @@ link() {
 
 info "Creando symlinks"
 link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+link "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
+# Hyper queda de respaldo, ya no es la terminal principal (ver README)
 link "$DOTFILES_DIR/hyper/hyper.js" "$HOME/.hyper.js"
 
 info "Listo. Próximos pasos:"
-echo "    1. Abrí Hyper (cerralo del todo con Cmd+Q si ya estaba abierto, para que tome fuente/tema)."
+echo "    1. Abrí WezTerm (tu terminal principal)."
 echo "    2. Corré 'nvim' una vez: lazy.nvim instala todos los plugins solo."
 echo "    3. Corré ':checkhealth claudecode' dentro de nvim para confirmar la integración con Claude."
