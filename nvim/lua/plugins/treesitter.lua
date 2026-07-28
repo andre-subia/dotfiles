@@ -1,13 +1,14 @@
--- nvim-treesitter's `main` branch is a full rewrite: no more
--- `nvim-treesitter.configs`/`ensure_installed` opts. Highlighting, folding
--- and indent are enabled per-buffer via autocmd, as Neovim core intends.
+-- Pinned to the `master` branch (classic, stable API) on purpose: the `main`
+-- branch is an incompatible rewrite that dropped `nvim-treesitter.parsers`
+-- (no more `ft_to_lang`), which broke Telescope's buffer previewer syntax
+-- highlighting. `master` is still officially maintained for compatibility.
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "main",
+  branch = "master",
   lazy = false,
   build = ":TSUpdate",
-  config = function()
-    local ensure_installed = {
+  opts = {
+    ensure_installed = {
       "bash",
       "css",
       "html",
@@ -15,6 +16,7 @@ return {
       "tsx",
       "typescript",
       "json",
+      "jsonc",
       "lua",
       "luadoc",
       "markdown",
@@ -25,19 +27,21 @@ return {
       "vim",
       "vimdoc",
       "yaml",
-    }
-    require("nvim-treesitter").install(ensure_installed)
-
-    vim.api.nvim_create_autocmd("FileType", {
-      group = vim.api.nvim_create_augroup("treesitter_start", { clear = true }),
-      callback = function(event)
-        local ok = pcall(vim.treesitter.start)
-        if not ok then
-          return
-        end
-        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-        vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      end,
-    })
+    },
+    auto_install = true,
+    highlight = { enable = true },
+    indent = { enable = true },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<C-space>",
+        node_incremental = "<C-space>",
+        scope_incremental = false,
+        node_decremental = "<bs>",
+      },
+    },
+  },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
   end,
 }
