@@ -1,6 +1,7 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin",
+  lazy = false, -- load at startup, not on-demand (config sets `defaults.lazy = true`)
   priority = 1000, -- load before other plugins
   opts = {
     flavour = "mocha", -- latte, frappe, macchiato, mocha
