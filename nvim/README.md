@@ -2,6 +2,8 @@
 
 `<leader>` = `<space>`. Convención: `n` = normal, `v` = visual, `i` = insert.
 
+¿Primera vez con Neovim? Empezá por [`TUTORIAL.md`](TUTORIAL.md).
+
 ## General
 
 | Atajo | Modo | Acción |

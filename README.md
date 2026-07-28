@@ -29,6 +29,9 @@ Necesita también el [Claude Code CLI](https://docs.anthropic.com/en/docs/claude
 
 Leader = `<space>`. Cheatsheet completo en [`nvim/README.md`](nvim/README.md).
 
+¿Vas a usar Neovim por primera vez? [`nvim/TUTORIAL.md`](nvim/TUTORIAL.md) tiene la
+tabla de equivalencias con Mac/VS Code (`Cmd+Z`, `Cmd+P`, etc.) y una intro a los modos.
+
 ## Claude Code dentro de Neovim
 
 Usa [claudecode.nvim](https://github.com/coder/claudecode.nvim), que implementa el mismo protocolo (WebSocket MCP) que la extensión oficial de VS Code: Claude ve el buffer activo, la selección y los diagnósticos en tiempo real, y puede proponer diffs que se revisan nativamente en Neovim.
