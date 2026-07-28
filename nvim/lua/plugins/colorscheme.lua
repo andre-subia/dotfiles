@@ -5,7 +5,8 @@ return {
   priority = 1000, -- load before other plugins
   opts = {
     flavour = "mocha", -- latte, frappe, macchiato, mocha
-    transparent_background = false,
+    transparent_background = true,
+    float = { transparent = true, solid = false },
     term_colors = true,
     styles = {
       comments = { "italic" },

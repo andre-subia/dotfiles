@@ -42,5 +42,8 @@ return {
     map("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics" })
     map("n", "<leader>fs", builtin.grep_string, { desc = "Grep word under cursor" })
     map("n", "<leader><leader>", builtin.buffers, { desc = "Find buffers" })
+    map("n", "<leader>uc", function()
+      builtin.colorscheme({ enable_preview = true })
+    end, { desc = "Change colorscheme (live preview)" })
   end,
 }

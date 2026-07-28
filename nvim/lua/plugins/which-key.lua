@@ -11,5 +11,6 @@ return {
     { "<leader>c", group = "Code" },
     { "<leader>b", group = "Buffer" },
     { "<leader>a", group = "AI/Claude" },
+    { "<leader>u", group = "UI" },
   },
 }
