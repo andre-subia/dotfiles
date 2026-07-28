@@ -16,47 +16,54 @@ ok()    { printf '  \033[1;32m✓\033[0m %s\n' "$1"; }
 warn()  { printf '  \033[1;33m!\033[0m %s\n' "$1"; }
 
 if ! command -v brew >/dev/null 2>&1; then
-  warn "Homebrew no está instalado."
-  echo '    Instalalo primero desde https://brew.sh y volvé a correr este script:'
+  warn "Homebrew is not installed."
+  echo '    Install it first from https://brew.sh, then re-run this script:'
   echo '    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
   exit 1
 fi
 
-info "Instalando dependencias con Homebrew"
-brew install neovim git gh ripgrep fd tree-sitter-cli lazygit
+info "Installing dependencies with Homebrew"
+brew install neovim git gh ripgrep fd tree-sitter-cli lazygit fileicon
 brew install --cask font-jetbrains-mono-nerd-font wezterm
 
 if ! command -v claude >/dev/null 2>&1; then
-  info "Instalando Claude Code CLI"
+  info "Installing the Claude Code CLI"
   curl -fsSL claude.ai/install.sh | bash
 else
-  ok "Claude Code CLI ya está instalado"
+  ok "Claude Code CLI already installed"
 fi
 
 # symlink $2 -> $1, moving anything already there aside (never clobbers)
 link() {
   local target="$1" linkpath="$2"
   if [ -L "$linkpath" ] && [ "$(readlink "$linkpath")" = "$target" ]; then
-    ok "$linkpath ya apunta a $target"
+    ok "$linkpath already points to $target"
     return
   fi
   if [ -e "$linkpath" ] || [ -L "$linkpath" ]; then
     local backup="${linkpath}.bak.$(date +%Y%m%d%H%M%S)"
-    warn "$linkpath ya existía, lo muevo a $backup"
+    warn "$linkpath already existed, moving it to $backup"
     mv "$linkpath" "$backup"
   fi
   mkdir -p "$(dirname "$linkpath")"
   ln -s "$target" "$linkpath"
-  ok "symlink creado: $linkpath -> $target"
+  ok "symlink created: $linkpath -> $target"
 }
 
-info "Creando symlinks"
+info "Creating symlinks"
 link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 link "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
-# Hyper queda de respaldo, ya no es la terminal principal (ver README)
+# Hyper is kept as a fallback, it's no longer the primary terminal
 link "$DOTFILES_DIR/hyper/hyper.js" "$HOME/.hyper.js"
 
-info "Listo. Próximos pasos:"
-echo "    1. Abrí WezTerm (tu terminal principal)."
-echo "    2. Corré 'nvim' una vez: lazy.nvim instala todos los plugins solo."
-echo "    3. Corré ':checkhealth claudecode' dentro de nvim para confirmar la integración con Claude."
+if [ -d "/Applications/WezTerm.app" ] && [ -f "$DOTFILES_DIR/wezterm/icon.png" ]; then
+  info "Applying custom WezTerm icon"
+  fileicon set /Applications/WezTerm.app "$DOTFILES_DIR/wezterm/icon.png" >/dev/null
+  killall Dock >/dev/null 2>&1 || true
+  ok "Icon applied"
+fi
+
+info "Done. Next steps:"
+echo "    1. Open WezTerm (your primary terminal)."
+echo "    2. Run 'nvim' once: lazy.nvim installs all the plugins on its own."
+echo "    3. Run ':checkhealth claudecode' inside nvim to confirm the Claude integration."
