@@ -114,3 +114,41 @@
 | Atajo | Acción |
 |---|---|
 | `<leader>un` | Descartar notificaciones |
+
+## UI
+
+| Atajo | Acción |
+|---|---|
+| `<leader>uc` | Elegir tema (Telescope, con preview en vivo) |
+| `<leader>um` | Mostrar/ocultar minimapa (mini.map) |
+
+## Terminal (toggleterm) — Metro, Expo, git, etc.
+
+| Atajo | Modo | Acción |
+|---|---|---|
+| `<C-\>` | n, t | Mostrar/ocultar terminal flotante |
+| `<leader>tt` | n | Terminal flotante |
+| `<leader>th` | n | Terminal horizontal |
+
+## npm (package-info.nvim, en `package.json`)
+
+| Atajo | Acción |
+|---|---|
+| `<leader>ns` | Mostrar versión instalada/última de cada paquete |
+| `<leader>nc` | Ocultar |
+| `<leader>nt` | Toggle |
+| `<leader>nu` | Actualizar el paquete bajo el cursor |
+| `<leader>nd` | Borrar el paquete bajo el cursor |
+| `<leader>ni` | Instalar un paquete nuevo |
+| `<leader>np` | Cambiar de versión |
+
+## Envolver texto (nvim-surround)
+
+| Atajo | Acción |
+|---|---|
+| `ys{motion}{char}` | Agregar — ej: `ysiw"` envuelve la palabra en comillas |
+| `cs{viejo}{nuevo}` | Cambiar — ej: `cs"'` cambia comillas dobles por simples |
+| `ds{char}` | Borrar — ej: `ds"` saca las comillas |
+| `cst{tag}<CR>` | Cambiar un tag HTML/JSX (ej: `<div>` → `<h1>`) |
+
+`nvim-ts-autotag` además actualiza solo el tag de cierre al editar uno de apertura en JSX/TSX.
