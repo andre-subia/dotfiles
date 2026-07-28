@@ -1,110 +1,115 @@
-# Tutorial: de Mac/VS Code a Neovim
+# Tutorial: from Mac/VS Code to Neovim
 
-Lo raro de Neovim al principio no son los plugins, es que es **modal**: el teclado no
-sirve siempre para escribir. Hay distintos modos y cada uno hace algo distinto con las
-mismas teclas. Una vez que entendés esto, el resto son atajos.
+[Español](TUTORIAL.es.md)
 
-## Los modos
+The odd part of Neovim at first isn't the plugins — it's that it's **modal**:
+the keyboard doesn't always type text. There are different modes, and each
+one does something different with the same keys. Once that clicks, the rest
+is just shortcuts.
 
-| Modo | Para qué | Cómo entrar |
+## The modes
+
+| Mode | For | How to enter |
 |---|---|---|
-| **Normal** | Moverte, borrar, copiar, ejecutar comandos. Es el modo por defecto. | `Esc` (o `jk`, ya mapeado) |
-| **Insert** | Escribir texto, como en cualquier editor normal | `i` (antes del cursor) o `a` (después) |
-| **Visual** | Seleccionar texto | `v` (por carácter), `V` (por línea), `Ctrl+v` (bloque) |
-| **Command-line** | Comandos tipo `:w`, `:q`, búsqueda y reemplazo | `:` |
+| **Normal** | Moving around, deleting, copying, running commands. The default mode. | `Esc` (or `jk`, already mapped) |
+| **Insert** | Typing text, like in any regular editor | `i` (before the cursor) or `a` (after) |
+| **Visual** | Selecting text | `v` (char-wise), `V` (line-wise), `Ctrl+v` (block) |
+| **Command-line** | Commands like `:w`, `:q`, search and replace | `:` |
 
-Regla de oro: si no sabés en qué modo estás, apretá `Esc` — eso siempre te devuelve a Normal.
+Golden rule: if you're not sure what mode you're in, hit `Esc` — that always
+gets you back to Normal.
 
-## Tabla de equivalencias (Mac/VS Code → Neovim)
+## Equivalence table (Mac/VS Code → Neovim)
 
-Todo lo de la columna derecha se hace en **modo Normal**, salvo que se aclare.
+Everything in the right column happens in **Normal mode**, unless noted.
 
-| Acción | Mac / VS Code | Neovim |
+| Action | Mac / VS Code | Neovim |
 |---|---|---|
-| Deshacer | `Cmd+Z` | `u` |
-| Rehacer | `Cmd+Shift+Z` | `Ctrl+r` |
-| Copiar (selección) | `Cmd+C` | `y` sobre una selección visual |
-| Copiar línea | — | `yy` |
-| Cortar | `Cmd+X` | `d` sobre selección visual, `dd` para la línea |
-| Pegar | `Cmd+V` | `p` (después del cursor/línea) o `P` (antes) |
-| Guardar | `Cmd+S` | `:w` o `<leader>w` |
-| Guardar todo | `Cmd+Option+S` | `:wa` |
-| Cerrar archivo/buffer | `Cmd+W` | `<leader>bd` |
-| Buscar en el archivo | `Cmd+F` | `/texto` (`n`/`N` = siguiente/anterior resultado) |
-| Buscar y reemplazar | `Cmd+Option+F` | `:%s/viejo/nuevo/g` |
-| Buscar en todo el proyecto | `Cmd+Shift+F` | `<leader>fg` (Telescope) |
-| Abrir archivo rápido (quick open) | `Cmd+P` | `<leader>ff` (Telescope) |
-| Ir a una línea | `Cmd+G` | `:123<cr>` o `123G` |
-| Seleccionar todo | `Cmd+A` | `ggVG` |
-| Duplicar línea | `Shift+Option+↓` | `yyp` |
-| Mover línea arriba/abajo | `Option+↑/↓` | En visual: `J` / `K` (ya mapeado) |
-| Comentar línea/selección | `Cmd+/` | `gcc` (línea) / `gc` (selección, en visual) |
-| Ir a definición | `Cmd+Click` / `F12` | `gd` |
-| Ver referencias | `Shift+F12` | `gr` |
-| Renombrar símbolo | `F2` | `<leader>rn` |
-| Autocompletar | `Ctrl+Space` | Aparece solo al escribir; `Tab` navega las opciones |
-| Mostrar/ocultar sidebar de archivos | `Cmd+B` | `<leader>ee` |
-| Terminal integrada | `` Ctrl+` `` | `:terminal`, o `<leader>ac` para el panel de Claude |
-| Dividir editor | `Cmd+\` | `:vsplit` (vertical) / `:split` (horizontal) |
-| Cambiar entre paneles divididos | `Cmd+1`/`Cmd+2` | `Ctrl+h/j/k/l` (ya mapeado) |
-| Multi-cursor (agregar en cada ocurrencia) | `Cmd+D` | No existe igual. Alternativas: `:s/patron/nuevo/g` en un rango, o grabar una macro (ver abajo) |
+| Undo | `Cmd+Z` | `u` |
+| Redo | `Cmd+Shift+Z` | `Ctrl+r` |
+| Copy (selection) | `Cmd+C` | `y` over a visual selection |
+| Copy line | — | `yy` |
+| Cut | `Cmd+X` | `d` over a visual selection, `dd` for the line |
+| Paste | `Cmd+V` | `p` (after the cursor/line) or `P` (before) |
+| Save | `Cmd+S` | `:w` or `<leader>w` |
+| Save all | `Cmd+Option+S` | `:wa` |
+| Close file/buffer | `Cmd+W` | `<leader>bd` |
+| Find in file | `Cmd+F` | `/text` (`n`/`N` = next/previous match) |
+| Find and replace | `Cmd+Option+F` | `:%s/old/new/g` |
+| Search across the project | `Cmd+Shift+F` | `<leader>fg` (Telescope) |
+| Quick open a file | `Cmd+P` | `<leader>ff` (Telescope) |
+| Go to a line | `Cmd+G` | `:123<cr>` or `123G` |
+| Select all | `Cmd+A` | `ggVG` |
+| Duplicate line | `Shift+Option+↓` | `yyp` |
+| Move line up/down | `Option+↑/↓` | In visual mode: `J` / `K` (already mapped) |
+| Comment line/selection | `Cmd+/` | `gcc` (line) / `gc` (selection, in visual mode) |
+| Go to definition | `Cmd+Click` / `F12` | `gd` |
+| Find references | `Shift+F12` | `gr` |
+| Rename symbol | `F2` | `<leader>rn` |
+| Autocomplete | `Ctrl+Space` | Shows up as you type; `Tab` cycles suggestions |
+| Toggle file sidebar | `Cmd+B` | `<leader>ee` |
+| Integrated terminal | `` Ctrl+` `` | `:terminal`, or `<leader>ac` for the Claude panel |
+| Split editor | `Cmd+\` | `:vsplit` (vertical) / `:split` (horizontal) |
+| Switch between split panes | `Cmd+1`/`Cmd+2` | `Ctrl+h/j/k/l` (already mapped) |
+| Multi-cursor (add on every occurrence) | `Cmd+D` | No direct equivalent. Alternatives: `:s/pattern/new/g` over a range, or record a macro (see below) |
 
-## Movimiento básico (lo primero que hay que automatizar)
-
-```
-h j k l     izquierda / abajo / arriba / derecha  (las flechas también andan)
-w / b       salto de palabra: siguiente / anterior
-0 / $       inicio / fin de la línea
-gg / G      inicio / fin del archivo
-{n}G        ir a la línea n (ej: 42G)
-```
-
-## Edición básica
+## Basic movement (the first thing to build muscle memory for)
 
 ```
-i / a       insertar antes / después del cursor
-x           borrar el carácter bajo el cursor
-dd          borrar (cortar) la línea entera
-yy          copiar la línea entera
-p / P       pegar después / antes del cursor
-u           deshacer
-Ctrl+r      rehacer
-.           repetir el último cambio  (MUY usado, ahorra un montón)
+h j k l     left / down / up / right  (arrow keys also work)
+w / b       word jump: next / previous
+0 / $       start / end of line
+gg / G      start / end of file
+{n}G        go to line n (e.g. 42G)
 ```
 
-La lógica de Neovim combina **verbo + movimiento**: `d` (delete) + `w` (word) = `dw`
-borra hasta la próxima palabra. `d$` borra hasta el fin de línea. `y}` copia hasta el
-próximo párrafo. Una vez que entendés esto, es más rápido que seleccionar con el mouse.
-
-## Macros (el reemplazo del multi-cursor)
-
-Para repetir una edición en varias líneas:
+## Basic editing
 
 ```
-qa          empieza a grabar una macro en el registro "a"
-...         hacés la edición una vez, normal
-q           termina de grabar
-@a          repite la macro
-5@a         repite la macro 5 veces más
+i / a       insert before / after the cursor
+x           delete the character under the cursor
+dd          delete (cut) the whole line
+yy          copy the whole line
+p / P       paste after / before the cursor
+u           undo
+Ctrl+r      redo
+.           repeat the last change  (used A LOT, saves a ton of time)
 ```
 
-## Flujo de trabajo típico en este setup
+Neovim's logic combines **verb + motion**: `d` (delete) + `w` (word) = `dw`
+deletes to the next word. `d$` deletes to the end of the line. `y}` copies to
+the next paragraph. Once this clicks, it's faster than selecting with the
+mouse.
 
-1. `nvim .` — abre el proyecto con el explorador de archivos disponible
-2. `<leader>ff` — saltar a un archivo por nombre (como `Cmd+P`)
-3. `Esc` para Normal, `i` para escribir — es lo único realmente distinto al principio
-4. `<leader>w` — guardar (formatea automáticamente al guardar)
-5. `gd`, `K`, `<leader>ca`, `<leader>rn` — navegar y arreglar código con el LSP
-6. `<leader>ac` — abrir Claude Code y pedirle ayuda sobre lo que estás viendo
+## Macros (the multi-cursor replacement)
 
-Cheatsheet completo de todos los atajos configurados: [`README.md`](README.md).
+To repeat an edit across several lines:
 
-## Para practicar
+```
+qa          start recording a macro into register "a"
+...         make the edit once, normally
+q           stop recording
+@a          replay the macro
+5@a         replay the macro 5 more times
+```
 
-Neovim trae un tutorial interactivo instalado. Corré en la terminal:
+## Typical workflow in this setup
+
+1. `nvim .` — opens the project with the file explorer available
+2. `<leader>ff` — jump to a file by name (like `Cmd+P`)
+3. `Esc` for Normal, `i` to type — the only real adjustment at first
+4. `<leader>w` — save (auto-formats on save)
+5. `gd`, `K`, `<leader>ca`, `<leader>rn` — navigate and fix code with the LSP
+6. `<leader>ac` — open Claude Code and ask for help with what you're looking at
+
+Full cheatsheet of every configured keymap: [`README.md`](README.md).
+
+## To practice
+
+Neovim ships with an interactive tutorial. Run in the terminal:
 
 ```bash
 nvim +Tutor
 ```
 
-Son ~30 minutos y cubre todo lo de arriba con ejercicios.
+It takes about 30 minutes and covers everything above with exercises.

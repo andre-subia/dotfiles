@@ -1,154 +1,157 @@
-# Neovim — atajos de teclado
+# Neovim — keymap cheatsheet
 
-`<leader>` = `<space>`. Convención: `n` = normal, `v` = visual, `i` = insert.
+[Español](README.es.md)
 
-¿Primera vez con Neovim? Empezá por [`TUTORIAL.md`](TUTORIAL.md).
+`<leader>` = `<space>`. Convention: `n` = normal, `v` = visual, `i` = insert.
+
+New to Neovim? Start with [`TUTORIAL.md`](TUTORIAL.md).
 
 ## General
 
-| Atajo | Modo | Acción |
+| Key | Mode | Action |
 |---|---|---|
-| `jk` | i | Salir a modo normal |
-| `<leader>w` | n | Guardar archivo |
-| `<leader>q` | n | Cerrar ventana |
-| `<esc>` | n | Limpiar resaltado de búsqueda |
-| `q` | n | Cerrar buffers especiales (help, quickfix, checkhealth, etc.) |
+| `jk` | i | Exit to normal mode |
+| `<leader>w` | n | Save file |
+| `<leader>q` | n | Close window |
+| `<esc>` | n | Clear search highlight |
+| `q` | n | Close special buffers (help, quickfix, checkhealth, etc.) |
 
-## Ventanas y buffers
+## Windows and buffers
 
-| Atajo | Modo | Acción |
+| Key | Mode | Action |
 |---|---|---|
-| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | n | Moverse entre ventanas (izq/abajo/arriba/der) |
-| `<C-Up>` / `<C-Down>` | n | Aumentar / reducir alto de la ventana |
-| `<C-Left>` / `<C-Right>` | n | Reducir / aumentar ancho de la ventana |
-| `<S-h>` / `<S-l>` | n | Buffer anterior / siguiente |
-| `<S-Tab>` | n | Buffer anterior (bufferline) |
-| `<leader>bp` | n | Elegir buffer (bufferline pick) |
-| `<leader>bd` | n | Cerrar buffer |
+| `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` | n | Move between windows (left/down/up/right) |
+| `<C-Up>` / `<C-Down>` | n | Increase / decrease window height |
+| `<C-Left>` / `<C-Right>` | n | Decrease / increase window width |
+| `<S-h>` / `<S-l>` | n | Previous / next buffer |
+| `<S-Tab>` | n | Previous buffer (bufferline) |
+| `<leader>bp` | n | Pick buffer (bufferline pick) |
+| `<leader>bd` | n | Close buffer |
 
-## Edición
+## Editing
 
-| Atajo | Modo | Acción |
+| Key | Mode | Action |
 |---|---|---|
-| `J` / `K` | v | Mover la selección hacia abajo / arriba |
-| `<` / `>` | v | Indentar sin perder la selección |
-| `gcc` | n | Comentar/descomentar línea (Comment.nvim) |
-| `gc` | v | Comentar/descomentar selección |
-| `<leader>cf` | n | Formatear buffer (conform.nvim) |
+| `J` / `K` | v | Move selection down / up |
+| `<` / `>` | v | Indent without losing the selection |
+| `gcc` | n | Toggle comment on line (Comment.nvim) |
+| `gc` | v | Toggle comment on selection |
+| `<leader>cf` | n | Format buffer (conform.nvim) |
 
-## Buscador (Telescope)
+## Finder (Telescope)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `<leader>ff` | Buscar archivos |
-| `<leader>fg` | Buscar texto en todo el proyecto (live grep) |
-| `<leader>fs` | Buscar la palabra bajo el cursor |
-| `<leader>fb` / `<leader><leader>` | Buscar entre buffers abiertos |
-| `<leader>fr` | Archivos recientes |
-| `<leader>fh` | Buscar en la ayuda de Neovim |
-| `<leader>fd` | Buscar en diagnósticos |
+| `<leader>ff` | Find files |
+| `<leader>fg` | Search text across the project (live grep) |
+| `<leader>fs` | Search the word under the cursor |
+| `<leader>fb` / `<leader><leader>` | Search open buffers |
+| `<leader>fr` | Recent files |
+| `<leader>fh` | Search Neovim help |
+| `<leader>fd` | Search diagnostics |
 
-## Explorador de archivos (neo-tree)
+## File explorer (neo-tree)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `<leader>ee` | Mostrar/ocultar explorador |
-| `<leader>ef` | Revelar el archivo actual en el explorador |
+| `<leader>ee` | Toggle explorer |
+| `<leader>ef` | Reveal current file in the explorer |
 
-## LSP (activo solo en buffers con servidor adjunto)
+## LSP (active only in buffers with an attached server)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `gd` | Ir a la definición |
-| `gD` | Ir a la declaración |
-| `gr` | Ver referencias |
-| `gI` | Ir a la implementación |
-| `K` | Mostrar documentación (hover) |
-| `<leader>rn` | Renombrar símbolo |
+| `gd` | Go to definition |
+| `gD` | Go to declaration |
+| `gr` | Show references |
+| `gI` | Go to implementation |
+| `K` | Show hover documentation |
+| `<leader>rn` | Rename symbol |
 | `<leader>ca` | Code action |
-| `<leader>D` | Ir a la definición de tipo |
-| `[d` / `]d` | Diagnóstico anterior / siguiente |
-| `<leader>e` | Mostrar diagnóstico en un float |
-| `<leader>xx` | Panel de diagnósticos del proyecto (Trouble) |
-| `<leader>xX` | Panel de diagnósticos del buffer actual (Trouble) |
+| `<leader>D` | Go to type definition |
+| `[d` / `]d` | Previous / next diagnostic |
+| `<leader>e` | Show diagnostic in a float |
+| `<leader>xx` | Project diagnostics panel (Trouble) |
+| `<leader>xX` | Current buffer diagnostics panel (Trouble) |
 | `<leader>xq` | Quickfix list (Trouble) |
 
-## Autocompletado (nvim-cmp, en insert mode)
+## Completion (nvim-cmp, in insert mode)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `<Tab>` / `<S-Tab>` | Siguiente / anterior sugerencia (o expandir snippet) |
-| `<C-n>` / `<C-p>` | Siguiente / anterior sugerencia |
-| `<C-Space>` | Forzar autocompletado |
-| `<CR>` | Confirmar selección |
-| `<C-e>` | Cancelar autocompletado |
-| `<C-d>` / `<C-f>` | Scroll de la documentación |
+| `<Tab>` / `<S-Tab>` | Next / previous suggestion (or expand snippet) |
+| `<C-n>` / `<C-p>` | Next / previous suggestion |
+| `<C-Space>` | Force completion |
+| `<CR>` | Confirm selection |
+| `<C-e>` | Cancel completion |
+| `<C-d>` / `<C-f>` | Scroll documentation |
 
 ## Git (gitsigns)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `]h` / `[h` | Hunk siguiente / anterior |
+| `]h` / `[h` | Next / previous hunk |
 | `<leader>hs` | Stage hunk |
 | `<leader>hr` | Reset hunk |
 | `<leader>hp` | Preview hunk |
-| `<leader>hb` | Blame de la línea |
+| `<leader>hb` | Blame line |
 
 ## Claude Code (claudecode.nvim)
 
-| Atajo | Modo | Acción |
+| Key | Mode | Action |
 |---|---|---|
-| `<leader>ac` | n | Abrir/cerrar Claude en un split |
-| `<leader>af` | n | Enfocar la ventana de Claude |
-| `<leader>ar` | n | Reanudar la última sesión (`--resume`) |
-| `<leader>aC` | n | Continuar la sesión (`--continue`) |
-| `<leader>am` | n | Elegir modelo de Claude |
-| `<leader>ab` | n | Agregar el buffer actual al contexto |
-| `<leader>as` | v | Enviar la selección a Claude |
-| `<leader>as` | n (en neo-tree) | Agregar el archivo seleccionado al contexto |
-| `<leader>aa` | n | Aceptar el diff propuesto |
-| `<leader>ad` | n | Rechazar el diff propuesto |
+| `<leader>ac` | n | Open/close Claude in a split |
+| `<leader>af` | n | Focus the Claude window |
+| `<leader>ar` | n | Resume the last session (`--resume`) |
+| `<leader>aC` | n | Continue the session (`--continue`) |
+| `<leader>am` | n | Select Claude model |
+| `<leader>ab` | n | Add the current buffer to context |
+| `<leader>as` | v | Send selection to Claude |
+| `<leader>as` | n (in neo-tree) | Add the selected file to context |
+| `<leader>aa` | n | Accept the proposed diff |
+| `<leader>ad` | n | Reject the proposed diff |
 
-## Notificaciones (snacks.nvim)
+## Notifications (snacks.nvim)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `<leader>un` | Descartar notificaciones |
+| `<leader>un` | Dismiss notifications |
 
 ## UI
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `<leader>uc` | Elegir tema (Telescope, con preview en vivo) |
-| `<leader>um` | Mostrar/ocultar minimapa (mini.map) |
+| `<leader>uc` | Pick a colorscheme (Telescope, with live preview) |
+| `<leader>um` | Toggle minimap (mini.map) |
 
 ## Terminal (toggleterm) — Metro, Expo, git, etc.
 
-| Atajo | Modo | Acción |
+| Key | Mode | Action |
 |---|---|---|
-| `<C-\>` | n, t | Mostrar/ocultar terminal flotante |
-| `<leader>tt` | n | Terminal flotante |
-| `<leader>th` | n | Terminal horizontal |
+| `<C-\>` | n, t | Toggle floating terminal |
+| `<leader>tt` | n | Floating terminal |
+| `<leader>th` | n | Horizontal terminal |
 
-## npm (package-info.nvim, en `package.json`)
+## npm (package-info.nvim, inside `package.json`)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `<leader>ns` | Mostrar versión instalada/última de cada paquete |
-| `<leader>nc` | Ocultar |
+| `<leader>ns` | Show each package's installed/latest version |
+| `<leader>nc` | Hide |
 | `<leader>nt` | Toggle |
-| `<leader>nu` | Actualizar el paquete bajo el cursor |
-| `<leader>nd` | Borrar el paquete bajo el cursor |
-| `<leader>ni` | Instalar un paquete nuevo |
-| `<leader>np` | Cambiar de versión |
+| `<leader>nu` | Update package under cursor |
+| `<leader>nd` | Delete package under cursor |
+| `<leader>ni` | Install a new package |
+| `<leader>np` | Change version |
 
-## Envolver texto (nvim-surround)
+## Surrounding text (nvim-surround)
 
-| Atajo | Acción |
+| Key | Action |
 |---|---|
-| `ys{motion}{char}` | Agregar — ej: `ysiw"` envuelve la palabra en comillas |
-| `cs{viejo}{nuevo}` | Cambiar — ej: `cs"'` cambia comillas dobles por simples |
-| `ds{char}` | Borrar — ej: `ds"` saca las comillas |
-| `cst{tag}<CR>` | Cambiar un tag HTML/JSX (ej: `<div>` → `<h1>`) |
+| `ys{motion}{char}` | Add — e.g. `ysiw"` wraps the word in quotes |
+| `cs{old}{new}` | Change — e.g. `cs"'` changes double quotes to single |
+| `ds{char}` | Delete — e.g. `ds"` removes the quotes |
+| `cst{tag}<CR>` | Change an HTML/JSX tag (e.g. `<div>` → `<h1>`) |
 
-`nvim-ts-autotag` además actualiza solo el tag de cierre al editar uno de apertura en JSX/TSX.
+`nvim-ts-autotag` also auto-updates the closing tag when you edit an opening
+one in JSX/TSX.

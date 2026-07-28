@@ -31,9 +31,9 @@ solo en el primer arranque).
 
 ## Atajos de Neovim
 
-Leader = `<space>`. Cheatsheet completo en [`nvim/README.md`](nvim/README.md).
+Leader = `<space>`. Cheatsheet completo en [`nvim/README.es.md`](nvim/README.es.md).
 
-¿Primera vez con Neovim? [`nvim/TUTORIAL.md`](nvim/TUTORIAL.md) tiene la
+¿Primera vez con Neovim? [`nvim/TUTORIAL.es.md`](nvim/TUTORIAL.es.md) tiene la
 tabla de equivalencias con Mac/VS Code (`Cmd+Z`, `Cmd+P`, etc.) y una intro a
 los modos.
 
