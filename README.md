@@ -12,26 +12,18 @@ Tema de color en todo el setup: [Catppuccin](https://github.com/catppuccin) (fla
 ## Instalación en una Mac nueva
 
 ```bash
-# dependencias
-brew install neovim git gh ripgrep fd lazygit
+brew install neovim git gh ripgrep fd tree-sitter-cli lazygit
 brew install --cask font-jetbrains-mono-nerd-font
 
-# clonar el repo
-git clone https://github.com/<tu-usuario>/dotfiles.git ~/dotfiles
-
-# symlinks
+git clone https://github.com/andre-subia/dotfiles.git ~/dotfiles
 mkdir -p ~/.config
 ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/hyper/hyper.js ~/.hyper.js
 
-# Claude Code CLI (si no lo tenés instalado)
-# ver https://docs.anthropic.com/en/docs/claude-code
-
-# abrir nvim: lazy.nvim instala todos los plugins solo en el primer arranque
-nvim
+nvim   # lazy.nvim instala los plugins solo, en el primer arranque
 ```
 
-En Hyper, seleccioná la fuente `JetBrainsMono Nerd Font` si no quedó aplicada automáticamente (Preferencias > reiniciar Hyper).
+Necesita también el [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) instalado.
 
 ## Neovim: atajos clave
 
