@@ -15,7 +15,9 @@ return {
     close_if_last_window = true,
     filesystem = {
       follow_current_file = { enabled = true },
-      hijack_netrw_behavior = "open_current",
+      -- netrw is disabled (see config/lazy.lua); opening on a directory arg
+      -- is handled explicitly by the VimEnter autocmd in config/autocmds.lua
+      hijack_netrw_behavior = "disabled",
       filtered_items = {
         visible = true,
         hide_dotfiles = false,

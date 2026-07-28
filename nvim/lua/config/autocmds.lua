@@ -47,3 +47,18 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- IDE-like startup: `nvim .` (or `nvim <dir>`) opens the project with the
+-- file explorer visible, instead of a single empty buffer.
+autocmd("VimEnter", {
+  group = augroup("open_explorer_on_dir", { clear = true }),
+  callback = function()
+    if vim.fn.argc() ~= 1 then
+      return
+    end
+    local arg = vim.fn.argv(0) --[[@as string]]
+    if vim.fn.isdirectory(arg) == 1 then
+      vim.cmd("Neotree show dir=" .. vim.fn.fnameescape(arg))
+    end
+  end,
+})
