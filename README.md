@@ -1,38 +1,47 @@
 # dotfiles
 
-Configuración personal, pensada para levantar el mismo entorno en cualquier Mac nueva.
+[Español](README.es.md)
 
-## Contenido
+A portable macOS development environment, reproducible on any machine with a
+single command: Neovim configured as a full IDE, WezTerm as the terminal, and
+Claude Code wired in natively. Styled end to end with [Catppuccin](https://github.com/catppuccin) (Mocha).
 
-- `nvim/` — Neovim configurado como IDE: LSP (TypeScript/JS, Python, Lua, JSON, HTML, CSS, Bash, Markdown), autocompletado, treesitter, explorador de archivos, fuzzy finder, git signs, formateo automático al guardar, y [claudecode.nvim](https://github.com/coder/claudecode.nvim) para usar Claude Code directamente dentro del editor.
-- `wezterm/` — Terminal principal. GPU-accelerated, config en Lua, tema Catppuccin Mocha nativo y transparencia real con blur.
-- `hyper/` — Config de [Hyper](https://hyper.is) que se usó al principio. Queda de respaldo pero no es la terminal recomendada: al ser Electron, mete su propio menú contextual nativo que choca con el de Neovim (doble menú al hacer click derecho).
+## Contents
 
-Tema de color en todo el setup: [Catppuccin](https://github.com/catppuccin) (flavour `mocha`).
+- **`nvim/`** — Neovim as an IDE: LSP (TypeScript/JS, Python, Lua, JSON, HTML, CSS, Bash, Markdown), autocompletion, Treesitter, file explorer, fuzzy finder, git signs, format-on-save, and [claudecode.nvim](https://github.com/coder/claudecode.nvim) for using Claude Code directly inside the editor.
+- **`wezterm/`** — Primary terminal. GPU-accelerated, configured in Lua, native Catppuccin Mocha theme, real transparency with blur.
+- **`hyper/`** — Config for [Hyper](https://hyper.is), used early on. Kept as a fallback but no longer the recommended terminal: being Electron-based, it shows its own native context menu, which conflicts with Neovim's (a double menu on right-click).
 
-## Instalación en una Mac nueva
+## Installation
 
 ```bash
 git clone https://github.com/andre-subia/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-Eso instala todas las dependencias (Homebrew), la fuente, el Claude Code CLI si
-falta, y crea los symlinks. Se puede correr de nuevo sin problema — no reinstala
-lo que ya está, y si encuentra un `~/.config/nvim` o `~/.hyper.js` previo que no
-sea de este repo, lo mueve a un `.bak` en vez de pisarlo.
+This installs every dependency (via Homebrew), the font, the Claude Code CLI
+if missing, and creates the symlinks. Safe to re-run — it skips anything
+already installed, and if it finds an existing `~/.config/nvim` or
+`~/.hyper.js` that isn't from this repo, it moves it aside to a `.bak` file
+instead of overwriting it.
 
-Después, abrí WezTerm y corré `nvim` una vez (lazy.nvim instala los plugins solo).
+Then open WezTerm and run `nvim` once (lazy.nvim installs the plugins on
+first launch).
 
-## Neovim: atajos clave
+## Neovim keymaps
 
-Leader = `<space>`. Cheatsheet completo en [`nvim/README.md`](nvim/README.md).
+Leader = `<space>`. Full cheatsheet in [`nvim/README.md`](nvim/README.md).
 
-¿Vas a usar Neovim por primera vez? [`nvim/TUTORIAL.md`](nvim/TUTORIAL.md) tiene la
-tabla de equivalencias con Mac/VS Code (`Cmd+Z`, `Cmd+P`, etc.) y una intro a los modos.
+New to Neovim? [`nvim/TUTORIAL.md`](nvim/TUTORIAL.md) has a Mac/VS Code
+equivalence table (`Cmd+Z`, `Cmd+P`, etc.) and a short intro to modal editing.
 
-## Claude Code dentro de Neovim
+## Claude Code inside Neovim
 
-Usa [claudecode.nvim](https://github.com/coder/claudecode.nvim), que implementa el mismo protocolo (WebSocket MCP) que la extensión oficial de VS Code: Claude ve el buffer activo, la selección y los diagnósticos en tiempo real, y puede proponer diffs que se revisan nativamente en Neovim.
+Uses [claudecode.nvim](https://github.com/coder/claudecode.nvim), which
+implements the same protocol (WebSocket MCP) as the official VS Code
+extension: Claude sees the active buffer, selection, and diagnostics in real
+time, and can propose diffs reviewed natively inside Neovim.
 
-Requiere tener el [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) instalado y accesible como `claude` en el `PATH`. Corré `:checkhealth claudecode` dentro de Neovim para verificar la instalación.
+Requires the [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code)
+installed and available as `claude` on `PATH`. Run `:checkhealth claudecode`
+inside Neovim to verify the setup.
