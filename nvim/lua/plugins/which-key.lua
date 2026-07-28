@@ -12,5 +12,7 @@ return {
     { "<leader>b", group = "Buffer" },
     { "<leader>a", group = "AI/Claude" },
     { "<leader>u", group = "UI" },
+    { "<leader>t", group = "Terminal" },
+    { "<leader>n", group = "npm" },
   },
 }

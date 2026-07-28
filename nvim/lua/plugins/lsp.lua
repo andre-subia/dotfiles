@@ -15,9 +15,10 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
+      -- ts_ls is intentionally NOT here: typescript-tools.nvim replaces it
+      -- (see plugins/typescript-tools.lua)
       ensure_installed = {
         "lua_ls",
-        "ts_ls",
         "eslint",
         "pyright",
         "ruff",
@@ -32,7 +33,6 @@ return {
       -- `automatic_enable = true` would wrongly enable them as LSP clients too.
       automatic_enable = {
         "lua_ls",
-        "ts_ls",
         "eslint",
         "pyright",
         "ruff",
