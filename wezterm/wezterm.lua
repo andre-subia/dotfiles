@@ -23,6 +23,13 @@ config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
+-- integrate the traffic-light buttons into the (themed) tab bar instead of a
+-- separate native title bar, so the whole top strip is one color like Hyper
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.integrated_title_button_style = "MacOsNative"
+config.integrated_title_button_alignment = "Left"
+config.integrated_title_button_color = "Auto"
+
 config.default_cursor_style = "SteadyBlock"
 config.scrollback_lines = 10000
 
