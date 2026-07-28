@@ -12,18 +12,16 @@ Tema de color en todo el setup: [Catppuccin](https://github.com/catppuccin) (fla
 ## Instalación en una Mac nueva
 
 ```bash
-brew install neovim git gh ripgrep fd tree-sitter-cli lazygit
-brew install --cask font-jetbrains-mono-nerd-font
-
 git clone https://github.com/andre-subia/dotfiles.git ~/dotfiles
-mkdir -p ~/.config
-ln -s ~/dotfiles/nvim ~/.config/nvim
-ln -s ~/dotfiles/hyper/hyper.js ~/.hyper.js
-
-nvim   # lazy.nvim instala los plugins solo, en el primer arranque
+~/dotfiles/install.sh
 ```
 
-Necesita también el [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) instalado.
+Eso instala todas las dependencias (Homebrew), la fuente, el Claude Code CLI si
+falta, y crea los symlinks. Se puede correr de nuevo sin problema — no reinstala
+lo que ya está, y si encuentra un `~/.config/nvim` o `~/.hyper.js` previo que no
+sea de este repo, lo mueve a un `.bak` en vez de pisarlo.
+
+Después, abrí `nvim` una vez (lazy.nvim instala los plugins solo) y reiniciá Hyper.
 
 ## Neovim: atajos clave
 
