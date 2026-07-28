@@ -27,7 +27,21 @@ return {
         "bashls",
         "marksman",
       },
-      automatic_enable = true,
+      -- explicit list: mason-tool-installer's formatter-only packages (stylua,
+      -- prettier) also happen to have lspconfig server definitions, so
+      -- `automatic_enable = true` would wrongly enable them as LSP clients too.
+      automatic_enable = {
+        "lua_ls",
+        "ts_ls",
+        "eslint",
+        "pyright",
+        "ruff",
+        "jsonls",
+        "html",
+        "cssls",
+        "bashls",
+        "marksman",
+      },
     },
   },
   {
