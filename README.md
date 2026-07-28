@@ -35,20 +35,7 @@ En Hyper, seleccioná la fuente `JetBrainsMono Nerd Font` si no quedó aplicada 
 
 ## Neovim: atajos clave
 
-Leader = `<space>`.
-
-| Atajo | Acción |
-|---|---|
-| `<leader>ff` / `<leader>fg` | Buscar archivos / buscar texto (Telescope) |
-| `<leader>ee` | Toggle explorador de archivos (neo-tree) |
-| `gd` / `gr` / `K` | Ir a definición / referencias / hover (LSP) |
-| `<leader>rn` / `<leader>ca` | Rename / code action (LSP) |
-| `<leader>cf` | Formatear buffer |
-| `<leader>xx` | Panel de diagnósticos (Trouble) |
-| `<leader>ac` | Abrir/cerrar Claude Code en un split |
-| `<leader>as` (visual) | Enviar selección a Claude |
-| `<leader>ab` | Agregar buffer actual al contexto de Claude |
-| `<leader>aa` / `<leader>ad` | Aceptar / rechazar diff propuesto por Claude |
+Leader = `<space>`. Cheatsheet completo en [`nvim/README.md`](nvim/README.md).
 
 ## Claude Code dentro de Neovim
 
