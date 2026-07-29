@@ -25,7 +25,7 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = { lazy = true },
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "kanagawa" } }, -- used on the first-install screen
   checker = { enabled = true, notify = false },
   change_detection = { notify = false },
   performance = {

@@ -1,8 +1,9 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
--- catppuccin ships as a built-in color scheme, no plugin needed
-config.color_scheme = "Catppuccin Mocha"
+-- kanagawa ships as a built-in color scheme, no plugin needed (matches the
+-- nvim colorscheme in nvim/lua/plugins/colorscheme.lua)
+config.color_scheme = "Kanagawa (Gogh)"
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13
@@ -22,6 +23,37 @@ config.window_padding = {
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
+
+-- tab bar colors (`colors` overrides whatever `color_scheme` sets): the active
+-- tab gets a dark background with bold white text, inactive ones stay dimmed
+config.colors = {
+  tab_bar = {
+    background = "#1f1f28", -- sumiInk3, kanagawa's own background
+    active_tab = {
+      bg_color = "#16161d", -- sumiInk0, the darkest tone of the palette
+      fg_color = "#ffffff",
+      intensity = "Bold",
+    },
+    inactive_tab = {
+      bg_color = "#1f1f28",
+      fg_color = "#727169", -- fujiGray
+    },
+    inactive_tab_hover = {
+      bg_color = "#2a2a37", -- sumiInk4
+      fg_color = "#dcd7ba", -- fujiWhite
+      italic = false,
+    },
+    new_tab = {
+      bg_color = "#1f1f28",
+      fg_color = "#727169",
+    },
+    new_tab_hover = {
+      bg_color = "#2a2a37",
+      fg_color = "#dcd7ba",
+      italic = false,
+    },
+  },
+}
 
 -- integrate the traffic-light buttons into the (themed) tab bar instead of a
 -- separate native title bar, so the whole top strip is one color like Hyper

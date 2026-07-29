@@ -5,12 +5,12 @@
 Un entorno de desarrollo portable para macOS, reproducible en cualquier
 máquina con un solo comando: Neovim configurado como IDE completo, WezTerm
 como terminal, y Claude Code integrado de forma nativa. Todo con el tema
-[Catppuccin](https://github.com/catppuccin) (Mocha).
+[Kanagawa](https://github.com/rebelot/kanagawa.nvim) (Wave).
 
 ## Contenido
 
-- **`nvim/`** — Neovim como IDE: LSP (TypeScript/JS, Python, Lua, JSON, HTML, CSS, Bash, Markdown), autocompletado, Treesitter, explorador de archivos, fuzzy finder, git signs, formateo automático al guardar, y [claudecode.nvim](https://github.com/coder/claudecode.nvim) para usar Claude Code directamente dentro del editor.
-- **`wezterm/`** — Terminal principal. Acelerada por GPU, configurada en Lua, tema Catppuccin Mocha nativo, transparencia real con blur.
+- **`nvim/`** — Neovim como IDE: LSP (TypeScript/JS, Python, Lua, JSON, HTML, CSS, Bash, Markdown), autocompletado, Treesitter, explorador de archivos, fuzzy finder, git signs, formateo automático al guardar, tema Kanagawa con cursor en cruz, y [claudecode.nvim](https://github.com/coder/claudecode.nvim) para usar Claude Code directamente dentro del editor.
+- **`wezterm/`** — Terminal principal. Acelerada por GPU, configurada en Lua, tema Kanagawa nativo con la pestaña activa resaltada, transparencia real con blur.
 - **`hyper/`** — Config de [Hyper](https://hyper.is), usada al principio. Queda de respaldo pero ya no es la terminal recomendada: al ser Electron, muestra su propio menú contextual nativo, que choca con el de Neovim (doble menú al hacer click derecho).
 
 ## Instalación

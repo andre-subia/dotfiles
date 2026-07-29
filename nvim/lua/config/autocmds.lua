@@ -48,6 +48,45 @@ autocmd("FileType", {
   end,
 })
 
+-- crosshair cursor (see config/options.lua): only in the focused window, and
+-- not in sidebars/pickers/terminals where the vertical guide is just noise.
+local crosshair_exclude = {
+  "neo-tree",
+  "toggleterm",
+  "TelescopePrompt",
+  "TelescopeResults",
+  "help",
+  "lazy",
+  "mason",
+  "trouble",
+  "minimap",
+  "octo",
+  "NeogitStatus",
+  "snacks_dashboard",
+}
+
+local function set_crosshair(on)
+  if vim.bo.buftype == "terminal" or vim.tbl_contains(crosshair_exclude, vim.bo.filetype) then
+    on = false
+  end
+  vim.wo.cursorline = on
+  vim.wo.cursorcolumn = on
+end
+
+autocmd({ "WinEnter", "BufWinEnter", "FileType" }, {
+  group = augroup("crosshair_on", { clear = true }),
+  callback = function()
+    set_crosshair(true)
+  end,
+})
+
+autocmd("WinLeave", {
+  group = augroup("crosshair_off", { clear = true }),
+  callback = function()
+    set_crosshair(false)
+  end,
+})
+
 -- IDE-like startup: `nvim .` (or `nvim <dir>`) opens the project with the
 -- file explorer visible, instead of a single empty buffer.
 autocmd("VimEnter", {

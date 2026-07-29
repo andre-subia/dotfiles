@@ -8,7 +8,10 @@ g.maplocalleader = " "
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
+-- crosshair cursor: horizontal + vertical guide on the cursor position.
+-- autocmds.lua keeps it to the active window only.
 opt.cursorline = true
+opt.cursorcolumn = true
 opt.termguicolors = true
 opt.scrolloff = 8
 opt.sidescrolloff = 8
