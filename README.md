@@ -1,11 +1,20 @@
 # dotfiles
 
+![macOS](https://img.shields.io/badge/macOS-1F1F28?style=for-the-badge&logo=apple&logoColor=DCD7BA)
+![Neovim](https://img.shields.io/badge/Neovim-1F1F28?style=for-the-badge&logo=neovim&logoColor=98BB6C)
+![WezTerm](https://img.shields.io/badge/WezTerm-1F1F28?style=for-the-badge&logo=wezterm&logoColor=7FB4CA)
+![Lua](https://img.shields.io/badge/Lua-1F1F28?style=for-the-badge&logo=lua&logoColor=7E9CD8)
+![Claude Code](https://img.shields.io/badge/Claude_Code-1F1F28?style=for-the-badge&logo=claude&logoColor=E46876)
+![Kanagawa](https://img.shields.io/badge/theme-Kanagawa_Wave-1F1F28?style=for-the-badge&labelColor=1F1F28&color=7E9CD8)
+
 [Español](README.es.md)
 
 A portable macOS development environment, reproducible on any machine with a
 single command: Neovim configured as a full IDE, WezTerm as the terminal, and
 Claude Code wired in natively. Styled end to end with
 [Kanagawa](https://github.com/rebelot/kanagawa.nvim) (Wave).
+
+![Neovim as an IDE in WezTerm, with the file explorer on the left and Claude Code on the right](assets/nvim.png)
 
 ## Contents
 
